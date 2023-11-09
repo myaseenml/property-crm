@@ -1,0 +1,22 @@
+
+button {
+    display: block;
+    margin: 10px;
+}
+@media  screen and (max-width: 767px) {
+    .menu {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Start with the menu off-screen */
+        width: 300px;
+        height: 100%;
+       
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: left 0.3s;
+    }
+    
+    .menu-open {
+        left: 0; /* Move the menu to the visible position */
+    }
+    
+}
