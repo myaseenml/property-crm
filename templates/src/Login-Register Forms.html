@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'css/output.css' %}" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+  <title>Login Signup</title>
+
+  <style>
+   .active{
+    color:rgb(28 100 242 /2)
+   }
+  </style>
+</head>
+<body>
+  <!--Forms Start-->
+  <div class="accounts py-16 " id="account">
+    <div class="  sm:py-12 px-12 py-6 sm:px-24">
+        <div class="grid md:grid-cols-2 relative  gap-6 items-center justify-center ">
+            <div class="image ">
+                <img src="{% static 'assets/Property-Square-black-backround--removebg-preview.png' %}" class="  z-10 ">
+            </div>
+            <div class="account-form bg-white sm:px-3  py-12 rounded-lg">
+                {% include 'src/messages.html' %}
+                    <div class="form-btn font-bold text-center py-4 ">
+                        <span onclick="Login()" id="login" class="active pr-4 text-xl text-gray-700 cursor-pointer" >Login</span>
+                        <span onclick="Register()" id="register" class="text-gray-700 text-xl cursor-pointer " >Register</span>
+                        <!-- <p id="indicator" class=" h-6 w-[60px] duration-200 hidden xl:block" ></p> -->
+                    </div>
+                    <!--Login Form Starts-->
+                    <form method="post" action="{% url 'login' %}" id="Login-Form" class=" translate-x-0 transition-all duration-700 w-2/3 mx-auto bg-white ">
+    {% csrf_token %}
+    <div class="my-3">
+        <label for="username" class="ml-1">Enter the username:</label>
+        <input type="text" name="username" placeholder="Username" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">
+    </div>
+    <div>
+        <label for="password" class="ml-1 mt-3">Enter the password:</label>
+        <input type="password" name="password_or_otp" placeholder="Enter the password" class="px-6 rounded-md w-full py-4 mx-1 mt-2 border">
+    </div>
+    <div class="flex items-center my-3 ml-1">
+        <input id="remember-me" type="checkbox" name="remember" class="w-4 h-4 mr-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+        <label for="remember-me">Remember Me</label>
+    </div>
+    <button class="text-center flex justify-center w-full mx-auto text-white rounded-md items-center px-5 py-4 mt-4 btn bg-blue-600" type="submit">Login</button>
+    <a href="{% url 'password_reset' %}" class="flex justify-center items-center mt-3">Forgot Password</a>
+</form>
+                     <!--Login Form Ends-->
+                      <!--Signup Form Starts-->
+                    <form method="post" action="{% url 'register_view' %}" id="Register-Form" class="translate-x-1/2  transition-all duration-700 w-2/3 mx-auto hidden bg-white">
+    {% csrf_token %}
+    <div class="my-3">
+        <label for="username" class="ml-1 mt-3">Full name:</label>
+        <input type="text" name="fullname" placeholder="Username" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">
+    </div>
+                        <div class="my-3">
+        <label for="username" class="ml-1 mt-3">User name:</label>
+        <input type="text" name="username" placeholder="Username" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">
+    </div>
+                        <div class="my-3">
+        <label for="username" class="ml-1 mt-3">Email:</label>
+        <input type="email" name="email" placeholder="Username" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">
+    </div>
+                         <div class="my-3">
+        <label for="username" class="ml-1 mt-3">Phone no:</label>
+        <input type="text" name="phone_no" placeholder="Username" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">
+    </div>
+    <div class="my-3">
+        <label for="password_or_otp" class="ml-1 mt-3">Enter the Password:</label>
+        <input type="text" name="password_or_otp" placeholder="Password" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">
+    </div>
+<!--    <div class="my-3">-->
+<!--        <label for="password_or_otp" class="ml-1 mt-3">Enter the Password:</label>-->
+<!--        <input type="text" name="last_login_ip" placeholder="Password" class="px-6 rounded-md py-4 w-full mx-1 mt-2 border">-->
+<!--    </div>-->
+    <div class="my-3">
+        <label for="view" class="sr-only">Account Type</label>
+
+        <select id="view" name="account_type" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+            <option value="" disabled selected>Select</option>
+            <option value="Admin">Admin</option>
+            <option value="Agent">Agent</option>
+            <option value="Manager">Manager</option>
+            <option value="Telecalling">Telecalling</option>
+        </select>
+    </div>
+    <button class="text-center flex justify-center  w-full mx-auto   btn  text-white rounded-md items-center px-5 py-4 mt-4 btn bg-blue-600" type="submit">Register</button>
+</form>
+                     <!--Login Form Ends-->
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+ <!--Forms End-->
+ <script src="{% static 'javascript/transform.js' %}"></script>
+
+</body>
+</html>

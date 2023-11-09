@@ -1,0 +1,16 @@
+<!-- myapp/templates/myapp/advanced_filter.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Filter</title>
+</head>
+<body>
+    <h1>Advanced Filter</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Add your advanced filter form inputs (dropdowns) here -->
+        <input type="submit" value="Apply Filter">
+    </form>
+</body>
+</html>

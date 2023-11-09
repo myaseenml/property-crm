@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .invoice {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .column {
+            width: 50%;
+        }
+        .header {
+            text-align: left;
+            width: 100%;
+        }
+        .invoice-number {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .order-date {
+            font-weight: bold;
+        }
+        .address {
+            margin-top: 20px;
+        }
+        .description {
+            margin-top: 20px;
+        }
+        .bill-amount {
+            font-weight: bold;
+        }
+        .payment-method {
+            margin-top: 20px;
+        }
+        .note {
+            margin-top: 20px;
+        }
+        .thanks {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .payment-container {
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+        .payment-table {
+        border-collapse: collapse;
+        width: 660px; /* Set the width to 400 pixels */
+    }
+    .payment-table th, .payment-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="column">
+            <div class="header" style="text-align: left;">
+                <h4>Invoice Receipt</h4>
+                <p>Invoice Number: 12345</p>
+                <h4>Service Provider</h4>
+                <p>MSA SOLUTIONS</p>
+                <p>OFFICE No :S49 Second Floor Malikabad plaza Rawalpindi. Contact: +92 342 7380 736</p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="description" style="text-align: right;">
+                <p>Order Date: 2023-11-03</p>
+                <h4>Customer Name: {{ customer_name }}</h4>
+            </div>
+        </div>
+        <div class="payment-container">
+            <table class="payment-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Items</th>
+						<th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% with "" as _empty %}
+    {% with product_names|length as list_length %}
+        {% for a, b, c in data %}
+            <tr>
+                <td>{{ a }}</td>
+                <td>{{ b }}</td>
+                <td>{{ c }}</td>
+            </tr>
+        {% endfor %}
+    {% endwith %}
+    {% endwith %}
+					<tr>
+						<td></td>
+						<td></td>
+                        <td>Total: {{ total_amount }}</td>
+                    </tr>
+                    <!-- Add more payment rows as needed -->
+                </tbody>
+            </table>
+        </div>
+        <div class="note">
+            <p><strong>Please Note:</strong> Dear Consumer, the bill payment will reflect in the next 48 hours in your account. Please contact our customer support for any queries regarding this order.</p>
+        </div>
+		<div>
+			<h4>Thank you for using our service</h4>
+			<p style="text-align: center;">(This is a computer-generated receipt and does not require a physical signature.)</p>
+		</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.1/html2pdf.bundle.min.js"></script>
+
+
+	<script>
+    window.onload = function () {
+
+        var pdfOptions = {
+            margin: 10, // Optional: Set the page margin
+            filename: '{{ filename }}.pdf', // Optional: Specify the filename
+            image: { type: 'jpeg', quality: 0.98 }, // Optional: Set image type and quality
+            html2canvas: { scale: 2 }, // Optional: Set scale for better resolution
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // Optional: Set PDF format and orientation
+        };
+
+        // Use html2pdf to generate the PDF
+        html2pdf()
+            .from(document.body)
+            .set(pdfOptions)
+            .save();
+        window.print();
+    };
+</script>
+
+
+</body>
+</html>

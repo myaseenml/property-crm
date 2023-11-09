@@ -1,0 +1,154 @@
+{% extends 'src/base.html' %}
+{% block title %}Leads{% endblock title %}
+{% block page_header_h3 %}Leads{% endblock page_header_h3 %}
+{% block page_header_span %}Leads{% endblock page_header_span %}
+{% load static %}
+{% block body %}
+<a href="add_lead" style="float: right;" class="bg-blue-500 px-5 mt-3 py-3 font-semibold text-white  rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="white" class="inline-block mr-2" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>Add</a>
+<a href="leads_filter_page" style="float: left;" class="bg-blue-500 px-5 mt-3 py-3 font-semibold text-white  rounded-lg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>Advance Filter</a>
+
+      </header>
+     
+      <div class="relative">
+        <button id="scrollLeftButton" class="absolute z-10 top-[50%] left-0"><img src="{% static 'assets/arrowheads-of-thin-outline-to-the-left.png' %}" class="w-8"></button>
+        <button id="scrollRightButton" class="absolute z-10 top-[50%]  right-0"><img src="{% static 'assets/fast-forward-double-right-arrows-symbol.png' %}" class="w-8"></button>
+        <div class="relative overflow-x-scroll mt-20 shadow-md sm:rounded-lg" id="scrollContainer">
+
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="content">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <!-- <th scope="col" class="p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            </div>
+                        </th> -->
+                        <th scope="col" class="px-6 py-3">
+                           Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Contact
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Location
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Budget
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Bedrooms
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Moving Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Property url
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Source
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Lead Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Comments
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Update
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Added By
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Agent
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Operations
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for lead in leads %}
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <!-- Table row for each lead -->
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ lead.added_date }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ lead.name }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.contact_no }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.email }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.location }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.budget }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.bedrooms }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.select_moving_date }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a style="color: blue;" href="{{ lead.property_link }}">{{ lead.property_link }}</a>
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.lead_source }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.lead_status }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.comment }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.update }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.added_by }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ lead.assigned_to }}
+                    </td>
+                    {% if type == 'Admin' or type == 'Agent' %}
+                    <td class="px-6 py-4">
+                        <a href="{% url 'lead_update' lead.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                    {% else %}
+                    <td class="px-6 py-4">
+                        <a href="{% url 'lead_update' lead.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="{% url 'lead_delete' lead.pk %}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                    </td>
+                    {% endif %}
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+          </div>
+      </div>
+  
+
+
+      
+      
+     
+   
+     </section>
+     
+  
+  </div>
+
+{% endblock body %}

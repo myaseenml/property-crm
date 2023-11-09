@@ -1,0 +1,112 @@
+{% extends 'src/base.html' %}
+{% block title %}Add Availability{% endblock title %}
+{% block page_header_h3 %}Add Availability{% endblock page_header_h3 %}
+{% block page_header_span %}Add Availability{% endblock page_header_span %}
+{% load static %}
+{% block body %}
+                <div class="form  py-20 mt-20 bg-white sm:mx-12 md:mx-32  mx-6 rounded-lg  lg:w-4/5 w-5/6 ">
+                    
+                        <form method="post" action="{% url 'submit_availability' %}" class="grid md:grid-cols-2  justify-items-center items-center align-middle">
+                            {% csrf_token %}
+                            <div class="right-form-area  w-5/6">
+                                <h2 class="my-3 text-center font-bold text-4xl ">Add Availibility Form</h2>
+                                <div class=" grid sm:grid-cols-2 gap-4 mt-12">
+                                    <div class="relative ">
+                                        <input type="text" id="Comments" name="comments" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required max="700"/>
+                                        <label for="Comments" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Comments</label>
+                                    </div>
+        
+                                    <div class="relative">
+    <input type="date" name="added_date" id="select_moving_date" class="block rounded-t-lg px-2.5 pb-2.5 bg-gray-100 h-12 border-t-transparent text-gray-900 border-b-2 border-gray-300 text-sm focus:border-b-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required />
+</div>
+<button type="button" id="currentDateButton" class="text-blue-500" onclick="setCurrentDate()">Select Current Date</button>
+            
+                                    <div class="relative ">
+                                        <label for="status" class="sr-only">Status:</label>
+                                    
+                                        <select id="status" name="status" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Status</option>
+                                            <option value="vacant">Vaccant</option>
+                                            <option value="occupied">Occupied</option>
+                                            
+                                        </select>
+                                    </div>
+    
+                                    <div class="relative ">
+                                        <input type="text" id="name" name="owner_name" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Owner Name</label>
+                                    </div>
+    
+                                    <div class="relative ">
+                                        <input type="number" id="phone" name="contact_no" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="phone" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Contact No.</label>
+                                    </div>
+    
+                                    <div class="relative ">
+                                        <input type="email" id="email" name="email" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="email" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Email </label>
+                                    </div>
+        
+                                   
+        
+                                  
+        
+                                    <div class="relative ">
+                                        <label for="avalibility-status" class="sr-only">Avaibility Status:</label>
+                                    
+                                        <select id="avalibility-status" name="availability_status" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Avalibility Status</option>
+                                            <option value="forSale">For Sale</option>
+                                            <option value="forRent">For Rent</option>
+                                            
+                                        </select>
+                                    </div>
+        
+                                     
+          
+                                </div>
+                                <!-- <div class="relative my-3">
+                                    <h2 class="text-xl font-semibold">Any Risks Or Issues ?</h2>            
+                                    <p>Are there any environmental, behavioural or other issues we should be aware of? If so please indicate below and we will contact you to discuss so we can provide therapy in a safe and supportive way</p>                
+                                
+                                    <textarea id="message" rows="4" class="block p-2.5 my-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+            
+                                </div> -->
+                                
+                                <!-- <div class="relative my-3">
+                                    <h2 class="text-xl font-semibold">How did you hear about us?</h2>            
+                                
+                                    <textarea id="message" rows="4" class="block p-2.5 my-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder=""></textarea>
+            
+                                </div> -->
+        
+        
+                                <button type="button" class="prev-btn bg-blue-500 text-white absolute my-3 font-medium rounded-lg  px-5 py-2.5 text-center mr-2 mb-2"><a href="add_availability1">Previous</a></button>
+        
+                                <button type="submit" class="ml-32 send-btn absolute my-3 bg-blue-500 text-white font-medium rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">Send</button>
+        
+                            </div>
+        
+                            <div class="left-form-area relative hidden md:block w-3/4">
+                                <img src="{% static 'assets/analog-landscape-city-with-buildings_23-2149661457.avif' %}" class="rounded-md">
+                                
+                            </div>
+    
+                        </form>
+    
+                </div>
+            </section>
+        </div>
+
+<script>
+    // JavaScript function to set the current date in the date input field
+    function setCurrentDate() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is 0-based
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+        document.getElementById("select_moving_date").value = formattedDate;
+    }
+</script>
+{% endblock body %}

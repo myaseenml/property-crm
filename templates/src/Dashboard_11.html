@@ -1,0 +1,336 @@
+{% extends 'src/base.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block page_header_h3 %}Dashboard{% endblock page_header_h3 %}
+{% block page_header_span %}Dashboard{% endblock page_header_span %}
+
+{% block body %}
+        <div class="space-x-3 relative mt-10">
+         
+            <!-- <h1 class="font-bold text-4xl mt-10 text-slate-800">General Statistics</h1> -->
+            <div class="description grid sm:grid-cols-2 lg:grid-cols-4  gap-8 z-10 ">
+              <div class="relative sm:w-64 flex flex-col  mb-6 break-words bg-white dark:bg-gray-950 shadow-xl dark:shadow-soft-dark-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                  <div class="flex justify-between -mx-3">
+                    <div class="flex-none  max-w-full px-3">
+                      <div>
+                        <p class="mb-0 font-sans font-semibold leading-normal text-lg dark:opacity-60">Tasks</p>
+                        <h3 class="mb-0 text-xl font-bold dark:text-white">
+                          000
+                          <span class="leading-normal text-sm font-weight-bolder text-lime-500">00%</span>
+                        </h3>
+                      </div>
+                    </div>
+                    <div class=" max-w-full px-3  flex-0">
+                      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" class="top-2 left-3 relative" fill="white" viewBox="0 0 512 512">! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.<defs><style>.fa-secondary{opacity:0.4;}</style></defs><path class="fa-primary" d="M384 240c0 18-14.3 34.6-38.4 48c-35 19.4-90.8 32-153.6 32c-59.6 0-112.9-11.3-148.2-29.1c-1.9-.9-3.7-1.9-5.5-2.9C14.3 274.6 0 258 0 240c0-44.2 86-80 192-80s192 35.8 192 80zM192 352c56.2 0 108.6-9.4 148.1-25.9c16.3-6.8 31.5-15.2 43.9-25.5V336c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9C304.9 404.7 251.6 416 192 416c-62.8 0-118.6-12.6-153.6-32C14.3 370.6 0 354 0 336V300.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 342.6 135.8 352 192 352zm148.1 70.1c16.3-6.8 31.5-15.2 43.9-25.5V432c0 44.2-86 80-192 80S0 476.2 0 432V396.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 438.6 135.8 448 192 448s108.6-9.4 148.1-25.9z"/><path class="fa-secondary" d="M512 80c0 18-14.3 34.6-38.4 48c-29.1 16.1-72.5 27.5-122.3 30.9c-3.7-1.8-7.4-3.5-11.3-5C300.6 137.4 248.2 128 192 128c-8.3 0-16.4 .2-24.5 .6c-.4-.2-.7-.4-1.1-.6C142.3 114.6 128 98 128 80c0-44.2 86-80 192-80S512 35.8 512 80zM416 341.3V278.1c19-4.2 36.5-9.5 52.1-16c16.3-6.8 31.5-15.2 43.9-25.5V272c0 29.6-38.6 55.5-96 69.3zm0-96V240c0-21.9-10.6-39.9-24.1-53.4c28.3-4.4 54.2-11.4 76.2-20.5c16.3-6.8 31.5-15.2 43.9-25.5V176c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9c-14.6 7.4-32.2 13.6-52.2 18.4z"/></svg>                -->
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" class="top-3 left-3 relative" fill="white" viewBox="0 0 448 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.<path d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z"/></svg> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" class="top-3 left-3 relative" fill="white" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="relative sm:w-64 flex flex-col  mb-6 break-words bg-white dark:bg-gray-950 shadow-xl dark:shadow-soft-dark-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                  <div class="flex justify-between -mx-3">
+                    <div class="flex-none  max-w-full px-3">
+                      <div>
+                        <p class="mb-0 font-sans font-semibold leading-normal text-lg dark:opacity-60">Contacts</p>
+                        <h5 class="mb-0 text-xl font-bold dark:text-white">
+                          000
+                          <span class="leading-normal text-sm font-weight-bolder text-red-500">00%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="px-3  flex-0">
+                      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl">
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" class="top-3 left-3 relative fill-white"  viewBox="0 0 512 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.<path d="M384 48c8.8 0 16 7.2 16 16V448c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16H384zM96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM240 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm-32 32c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H336c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H208zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" class="top-3 left-3 relative fill-white"  viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M96 0C60.7 0 32 28.7 32 64V448c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H96zM208 288h64c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16H144c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM512 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V80zM496 192c-8.8 0-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm16 144c0-8.8-7.2-16-16-16s-16 7.2-16 16v64c0 8.8 7.2 16 16 16s16-7.2 16-16V336z"/></svg>
+                      </div> 
+                      </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="relative sm:w-64 flex flex-col  mb-6 break-words bg-white dark:bg-gray-950 shadow-xl dark:shadow-soft-dark-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                  <div class="flex justify-between -mx-3">
+                    <div class="flex-none  max-w-full px-3">
+                      <div>
+                        <p class="mb-0 font-sans font-semibold leading-normal text-lg dark:opacity-60">Leads</p>
+                        <h5 class="mb-0 text-xl font-bold dark:text-white">
+                          000
+                          <span class="leading-normal text-sm font-weight-bolder text-lime-500">00%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class=" px-3  flex-0">
+                      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg"  height="1.5em" class="top-3 left-3 relative" fill="white"  viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M160 80c0-26.5 21.5-48 48-48h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V80zM0 272c0-26.5 21.5-48 48-48H80c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V272zM368 96h32c26.5 0 48 21.5 48 48V432c0 26.5-21.5 48-48 48H368c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48z"/></svg>         
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="relative sm:w-64 flex flex-col  mb-6 break-words bg-white dark:bg-gray-950 shadow-xl dark:shadow-soft-dark-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                  <div class="flex justify-between -mx-3">
+                    <div class="flex-none  max-w-full px-3">
+                      <div>
+                        <p class="mb-0 font-sans font-semibold leading-normal text-lg dark:opacity-60">Property</p>
+                        <h5 class="mb-0 font-bold text-xl dark:text-white">
+                          000
+                          <span class="leading-normal text-sm font-weight-bolder text-lime-500">00%</span>
+                        </h5>
+                      </div>
+                    </div>
+                    <div class="px-3  flex-0">
+                      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl">
+                        <svg xmlns="http://www.w3.org/2000/svg"  height="1.5em" class="top-3 left-2.5 relative" fill="white"  viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+       
+      </header>
+      
+      
+      <div class="flex flex-col lg:flex-row mt-10 gap-28">        
+      <!-- <div class="chart mt-6 shadow-xl  rounded-lg">
+        <div class="w-full max-w-full px-3 mt-0 mb-6 lg:mb-0  lg:flex-none">
+          <div class="relative z-20 flex flex-col min-w-0 break-words bg-white border-0 border-solid border-black-125 shadow-soft-xl rounded-2xl bg-clip-border">
+            <div class=" p-4">
+              <div class="py-4 pr-1 mb-4 bg-gradient-to-tl from-gray-900 to-slate-800 rounded-xl">
+                <div>
+                  <div class="text-white">
+                    <p class="relative top-12 left-4">200</p>
+                    <p class="relative top-16 left-4">100</p>
+                    <p class="relative top-20 left-7">0</p>
+                  </div>
+                  <div class="h-24 bg-white w-2 absolute left-20 top-24 rounded-full "></div>
+                  <div class="h-12 bg-white w-2 absolute left-28 top-36 rounded-full "></div>
+                  <div class="h-6 bg-white w-2 absolute left-36 top-[165px] rounded-full "></div>
+                  <div class="h-12 bg-white w-2 absolute left-44 top-36 rounded-full "></div>
+                  <div class="h-24 bg-white w-2 absolute left-52 top-24 rounded-full "></div>
+                  <div class="h-6 bg-white w-2 absolute left-60 top-[165px] rounded-full "></div>
+                  <div class="h-12 bg-white w-2 absolute left-[270px] top-36 rounded-full "></div>
+                  <div class="h-6 bg-white w-2 absolute left-[300px] top-[165px] rounded-full "></div>
+                  <div class="h-24 bg-white w-2 absolute left-[330px] top-24 rounded-full "></div>
+                  <div class="h-12 bg-white w-2 absolute left-[360px] top-36 rounded-full "></div>
+                  <div class="h-6 bg-white w-2 absolute left-[390px] top-[165px] rounded-full "></div>
+
+                  <div class="h-12 bg-white w-2 absolute left-[420px] top-36 rounded-full "></div>
+                  <div class="h-24 bg-white w-2 absolute left-[450px] top-24 rounded-full "></div>
+
+                  <canvas id="chart-bars" class="chart-canvas " height="110">
+                    
+                  </canvas>
+                  
+
+                </div>
+              </div>
+              <h6 class="mt-6 mb-0 ml-2 dark:text-white">Active Users</h6>
+              <p class="ml-2 leading-normal text-sm ">(<span class="font-bold">+23%</span>) than last week</p>
+              <div class="w-full px-6 mx-auto max-w-screen-2xl rounded-xl">
+                <div class="flex flex-wrap mt-0 -mx-3">
+                  <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
+                    <div class="flex mb-2">
+                      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-purple-700 to-pink-500 text-neutral-900">
+                        <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>document</title>
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(154.000000, 300.000000)">
+                                  <path class="color-background" d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z" opacity="0.603585379"></path>
+                                  <path class="color-background" d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <p class="mt-1 mb-0 font-semibold leading-tight text-xs dark:opacity-60">Users</p>
+                    </div>
+                    <h4 class="font-bold dark:text-white">36K</h4>
+                    <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
+                      <div class="duration-600 ease-soft -mt-0.4 -ml-px flex h-1.5 w-3/5 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
+                    <div class="flex mb-2">
+                      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-blue-600 to-cyan-400 text-neutral-900">
+                        <svg width="10px" height="10px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>spaceship</title>
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-1720.000000, -592.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(4.000000, 301.000000)">
+                                  <path
+                                    class="color-background"
+                                    d="M39.3,0.706666667 C38.9660984,0.370464027 38.5048767,0.192278529 38.0316667,0.216666667 C14.6516667,1.43666667 6.015,22.2633333 5.93166667,22.4733333 C5.68236407,23.0926189 5.82664679,23.8009159 6.29833333,24.2733333 L15.7266667,33.7016667 C16.2013871,34.1756798 16.9140329,34.3188658 17.535,34.065 C17.7433333,33.98 38.4583333,25.2466667 39.7816667,1.97666667 C39.8087196,1.50414529 39.6335979,1.04240574 39.3,0.706666667 Z M25.69,19.0233333 C24.7367525,19.9768687 23.3029475,20.2622391 22.0572426,19.7463614 C20.8115377,19.2304837 19.9992882,18.0149658 19.9992882,16.6666667 C19.9992882,15.3183676 20.8115377,14.1028496 22.0572426,13.5869719 C23.3029475,13.0710943 24.7367525,13.3564646 25.69,14.31 C26.9912731,15.6116662 26.9912731,17.7216672 25.69,19.0233333 L25.69,19.0233333 Z"
+                                  ></path>
+                                  <path class="color-background" d="M1.855,31.4066667 C3.05106558,30.2024182 4.79973884,29.7296005 6.43969145,30.1670277 C8.07964407,30.6044549 9.36054508,31.8853559 9.7979723,33.5253085 C10.2353995,35.1652612 9.76258177,36.9139344 8.55833333,38.11 C6.70666667,39.9616667 0,40 0,40 C0,40 0,33.2566667 1.855,31.4066667 Z"></path>
+                                  <path class="color-background" d="M17.2616667,3.90166667 C12.4943643,3.07192755 7.62174065,4.61673894 4.20333333,8.04166667 C3.31200265,8.94126033 2.53706177,9.94913142 1.89666667,11.0416667 C1.5109569,11.6966059 1.61721591,12.5295394 2.155,13.0666667 L5.47,16.3833333 C8.55036617,11.4946947 12.5559074,7.25476565 17.2616667,3.90166667 L17.2616667,3.90166667 Z" opacity="0.598539807"></path>
+                                  <path class="color-background" d="M36.0983333,22.7383333 C36.9280725,27.5056357 35.3832611,32.3782594 31.9583333,35.7966667 C31.0587397,36.6879974 30.0508686,37.4629382 28.9583333,38.1033333 C28.3033941,38.4890431 27.4704606,38.3827841 26.9333333,37.845 L23.6166667,34.53 C28.5053053,31.4496338 32.7452344,27.4440926 36.0983333,22.7383333 L36.0983333,22.7383333 Z" opacity="0.598539807"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <p class="mt-1 mb-0 font-semibold leading-tight text-xs dark:opacity-60">Clicks</p>
+                    </div>
+                    <h4 class="font-bold dark:text-white">2m</h4>
+                    <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-slate-700">
+                      <div class="duration-600 ease-soft -mt-0.4 w-9/10 -ml-px flex h-1.5 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center  transition-all" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
+                    <div class="flex mb-2">
+                      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-red-500 to-yellow-400 text-neutral-900">
+                        <svg width="10px" height="10px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>credit-card</title>
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(453.000000, 454.000000)">
+                                  <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                  <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <p class="mt-1 mb-0 font-semibold leading-tight text-xs dark:opacity-60">Sales</p>
+                    </div>
+                    <h4 class="font-bold dark:text-white">435$</h4>
+                    <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
+                      <div class="duration-600 ease-soft -mt-0.4 w-4/12 -ml-px flex h-1.5 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
+                    <div class="flex mb-2">
+                      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-to-tl from-red-600 to-rose-400 text-neutral-900">
+                        <svg width="10px" height="10px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                          <title>settings</title>
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-2020.000000, -442.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                              <g transform="translate(1716.000000, 291.000000)">
+                                <g transform="translate(304.000000, 151.000000)">
+                                  <polygon class="color-background" opacity="0.596981957" points="18.0883333 15.7316667 11.1783333 8.82166667 13.3333333 6.66666667 6.66666667 0 0 6.66666667 6.66666667 13.3333333 8.82166667 11.1783333 15.315 17.6716667"></polygon>
+                                  <path class="color-background" d="M31.5666667,23.2333333 C31.0516667,23.2933333 30.53,23.3333333 30,23.3333333 C29.4916667,23.3333333 28.9866667,23.3033333 28.48,23.245 L22.4116667,30.7433333 L29.9416667,38.2733333 C32.2433333,40.575 35.9733333,40.575 38.275,38.2733333 L38.275,38.2733333 C40.5766667,35.9716667 40.5766667,32.2416667 38.275,29.94 L31.5666667,23.2333333 Z" opacity="0.596981957"></path>
+                                  <path class="color-background" d="M33.785,11.285 L28.715,6.215 L34.0616667,0.868333333 C32.82,0.315 31.4483333,0 30,0 C24.4766667,0 20,4.47666667 20,10 C20,10.99 20.1483333,11.9433333 20.4166667,12.8466667 L2.435,27.3966667 C0.95,28.7083333 0.0633333333,30.595 0.00333333333,32.5733333 C-0.0583333333,34.5533333 0.71,36.4916667 2.11,37.89 C3.47,39.2516667 5.27833333,40 7.20166667,40 C9.26666667,40 11.2366667,39.1133333 12.6033333,37.565 L27.1533333,19.5833333 C28.0566667,19.8516667 29.01,20 30,20 C35.5233333,20 40,15.5233333 40,10 C40,8.55166667 39.685,7.18 39.1316667,5.93666667 L33.785,11.285 Z"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                      <p class="mt-1 mb-0 font-semibold leading-tight text-xs dark:opacity-60">Items</p>
+                    </div>
+                    <h4 class="font-bold dark:text-white">43</h4>
+                    <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
+                      <div class="duration-600 ease-soft -mt-0.4 -ml-px flex h-1.5 w-1/2 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="line-chart bg-white shadow-xl lg:w-1/2 rounded-lg px-2 py-6 mt-5">
+        Sales overview<br>
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="lime" class="inline-block" viewBox="0 0 384 512">
+            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+        </svg> 4% more in 2021
+        <canvas id="myChart" class="mt-2 w-full h-full"></canvas>
+    </div>
+    <div class="lg:w-96">
+      <canvas id="myRoundChart" style="width: 200px; height: 200px;"></canvas>
+  </div>
+
+    </div>
+     
+    </div>
+     </section>
+     
+  
+  </div>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+
+<script>
+    const xValues = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const yValues = [0, 100, 200, 300, 400, 500];
+
+    new Chart("myChart", {
+        type: "line",
+        data: {
+            labels: xValues,
+            datasets: [{
+                label: "Dataset 1",
+                data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                borderColor: "pink",
+                fill: false
+            }, {
+                label: "Dataset 2",
+                data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+                borderColor: "blue",
+                fill: false
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            }
+        }
+    });
+</script>
+<script>
+  // Data for the chart
+  const data = {
+      labels: ["Blue", "Green", "Yellow", "Pink"],
+      datasets: [{
+          data: [50, 20, 30, 40],
+          backgroundColor: ["#0068B9", "#58FFC5", "#feb019" , "#FF4560"]
+      }],
+  };
+
+  // Get the canvas element and create the chart
+  const ctx = document.getElementById("myRoundChart").getContext("2d");
+  const myChart = new Chart(ctx, {
+      type: "doughnut",
+      data: data,
+      options: {
+          // Add any options or customizations here
+          // For example, you can add a title:
+          title: {
+                display: false,
+                text: "Round Chart with Labels at the End",
+                fontSize: 16
+            },
+            legend: {
+                display: true, // Hide the legend
+            },
+            plugins: {
+                datalabels: {
+                    color: 'white',
+                    align: 'end', // Position labels at the end
+                    offset: 10, // Adjust the label distance from the end of the segment
+                    font: {
+                        weight: 'bold'
+                    }
+                }
+            }
+      }
+  });
+</script>
+{% endblock body %}

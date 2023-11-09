@@ -1,0 +1,118 @@
+{% extends 'src/base.html' %}
+{% block title %}Leads Filter{% endblock title %}
+{% block page_header_h3 %}Leads Filter{% endblock page_header_h3 %}
+{% block page_header_span %}Leads Filter{% endblock page_header_span %}
+{% load static %}
+{% block body %}
+
+                <div class="form mt-20 py-16 bg-white sm:mx-12 md:mx-32  mx-6 rounded-lg  lg:w-4/5 sm:w-5/6">
+                    <form method="post" action="{% url 'leads_filter' %}" class="px-8 sm:px-16 py-12 ">
+                        {% csrf_token %}
+
+                            <div class=" ">
+                                <h2 class="text-center font-bold text-4xl ">Leads Filter Form</h2>
+                                <div class="  grid sm:grid-cols-2 md:grid-cols-4 mb-3 gap-6 mt-12 ">
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select name="location" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Location</option>
+                                            {% for unique_location in unique_locations %}
+                                                <option value="{{ unique_location }}">{{ unique_location }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="leadSource" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Lead Source</option>
+                                            {% for unique_lead_source in unique_lead_sources %}
+                                                <option value="{{ unique_lead_source }}">{{ unique_lead_source }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="leadStatus" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Lead Status</option>
+                                            {% for unique_lead_status in unique_lead_statuses %}
+                                                <option value="{{ unique_lead_status }}">{{ unique_lead_status }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="addBy" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Added by</option>
+                                            {% for unique_added_by in unique_added_bys %}
+                                                <option value="{{ unique_added_by }}">{{ unique_added_by }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="agent" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Agent</option>
+                                            {% for unique_assigned_to in unique_assigned_tos %}
+                                                <option value="{{ unique_assigned_to }}">{{ unique_assigned_to }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="bedrooms" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Bedrooms</option>
+                                            {% for unique_bedroom in unique_bedrooms %}
+                                                <option value="{{ unique_bedroom }}">{{ unique_bedroom }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                        </div>
+
+                        <button type="submit" class=" absolute my-3 send-btn bg-blue-500 font-medium text-white rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">Add Lead</button>
+                            </div>
+
+
+                        </form>
+
+
+                </div>
+            </section>
+        </div>
+
+        <script>
+            // const select = document.getElementById("floorNumber11");
+
+            // for (let i = 1; i <= 70; i++) {
+            //     const option = document.createElement("option");
+            //     option.value = i;
+            //     option.text = i;
+            //     select.appendChild(option);
+            // }
+
+            const bedroom = document.getElementById("bedroom11");
+
+        for (let j = 1; j <= 10; j++) {
+            const option = document.createElement("option");
+            option.value = j;
+            option.text = j;
+            bedroom.appendChild(option);
+        }
+
+        // const bathroom = document.getElementById("bathroom11");
+
+        // for (let k = 1; k <= 10; k++) {
+        //     const option = document.createElement("option");
+        //     option.value = k;
+        //     option.text = k;
+        //     bathroom.appendChild(option);
+        // }
+        </script>
+
+{% endblock body %}

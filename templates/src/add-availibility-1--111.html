@@ -1,0 +1,122 @@
+{% extends 'src/base.html' %}
+{% block title %}Leads{% endblock title %}
+{% block page_header_h3 %}Leads{% endblock page_header_h3 %}
+{% block page_header_span %}Leads{% endblock page_header_span %}
+{% load static %}
+{% block body %}
+                <head>
+                    <title>Advanced Filter</title>
+                    <style>
+    .filter-form {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .filter-column {
+        flex: 1;
+        padding: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    select {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+                </head>
+                <body>
+                    <h1>Advanced Filter</h1>
+                    <form class="filter-form" method="post" action="{% url 'availability_filter' %}" id="filter-form">
+    {% csrf_token %}
+    <div class="filter-column">
+        <label for="location">Location</label>
+        <select name="location" id="price">
+            {% for unique_location in unique_locations %}
+            <option value="{{ unique_location }}">{{ unique_location }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="filter-column">
+        <label for="community">Building/Tower</label>
+        <select name="tower" id="price">
+            {% for unique_property in unique_properties %}
+            <option value="{{ unique_property }}">{{ unique_property }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="filter-column">
+        <label for="community">Community</label>
+        <select name="community" id="price">
+            {% for unique_community in unique_communities %}
+            <option value="{{ unique_community }}">{{ unique_community }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="filter-column">
+        <label for="community">Bedrooms</label>
+        <select name="bedrooms" id="price">
+            {% for unique_bedroom in unique_bedrooms %}
+            <option value="{{ unique_bedroom }}">{{ unique_bedroom }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="filter-column">
+        <label for="community">Propety_Type</label>
+        <select name="propertyType" id="price">
+            {% for unique_property_type in unique_property_types %}
+            <option value="{{ unique_property_type }}">{{ unique_property_type }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="filter-column">
+        <label for="community">Unit_No</label>
+        <select name="unitNo" id="price">
+            {% for unique_unit_no in unique_unit_nos %}
+            <option value="{{ unique_unit_no }}">{{ unique_unit_no }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <div class="filter-column">
+        <label for="community">Sr_No</label>
+        <select name="srNo" id="price">
+            {% for unique_sno in unique_snos %}
+            <option value="{{ unique_sno }}">{{ unique_sno }}</option>
+        {% endfor %}
+        </select>
+    </div>
+    <!-- Repeat the structure for other fields as needed -->
+    <div class="filter-column" style="flex: 1; padding: 10px;">
+        <label for="priceFrom">Price_From</label>
+        <input type="number" name="priceFrom" id="priceFrom" style="width: 100%; padding: 5px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Enter price from...">
+    </div>
+
+    <div class="filter-column" style="flex: 1; padding: 10px;">
+        <label for="priceTo">Price_To</label>
+        <input type="number" name="priceTo" id="priceTo" style="width: 100%; padding: 5px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Enter price to...">
+    </div>
+    <input type="submit" value="Apply Filter" onclick="applyFilter()">
+
+</form>
+
+                </body>
+                </html>
+            `;
+            filterPopupWindow.document.write(popupContent);
+        }
+    </script>

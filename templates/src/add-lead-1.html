@@ -1,0 +1,166 @@
+{% extends 'src/base.html' %}
+{% block title %}Add Lead{% endblock title %}
+{% block page_header_h3 %}Add Lead{% endblock page_header_h3 %}
+{% block page_header_span %}Add Lead{% endblock page_header_span %}
+{% load static %}
+{% block body %}
+
+                <div class="form mt-20 py-16 bg-white sm:mx-12 md:mx-32  mx-6 rounded-lg  lg:w-4/5 sm:w-5/6">
+                    <form method="post" action="{% url 'submit_lead' %}" class="px-8 sm:px-16 py-12 ">
+                        {% csrf_token %}
+    
+                            <div class=" ">
+                                <h2 class="text-center font-bold text-4xl ">Add Lead Form</h2>
+                                <div class="  grid sm:grid-cols-2 md:grid-cols-4 mb-3 gap-6 mt-12 ">
+                                    <div class="relative ">
+                                        
+                                        <input name="name" type="text" id="name" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Name</label>
+                                    </div>
+        
+                                    <div class="relative ">
+                                    
+                                        <input name="contact_no" type="text" id="contact" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required/>
+                                        <label for="contact" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Contact No.</label>
+                                    </div>
+            
+                                   
+                                   
+                                    <div class="relative ">
+                                        <input name="email" type="email" id="email" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="email" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Email</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        
+                                        <input name="location" type="text" id="location" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="location" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Location</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        <input name="budget" type="number" id="budget" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="budget" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Budget</label>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="bedrooms" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Bedroom</option>
+                                        </select>
+                                    </div>
+        
+                                    <div class="relative ">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                                          </div>
+                                          <input name="select_moving_date" type="date" class="px-2.5 pb-2.5  bg-gray-100 h-12 border-t-transparent  text-gray-900  border-b-2 border-gray-300  text-sm  focus:border-b-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white " placeholder="Select Moving Date">
+                                        
+                                    </div>
+        
+                                    <div class="relative ">
+                                        
+                                        <input name="property_link" type="url" id="propertyLink" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="propertyLink" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Property Link</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        
+                                        <input name="lead_source" type="text" id="leadSource" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="leadSource" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Lead Source</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        <label for="view" class="sr-only">Lead Status:</label>
+                                    
+                                        <select id="view" name="lead_status" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Lead Status</option>
+                                            <option value="fresh">Fresh</option>
+                                            <option value="transferred">Transferred</option>
+                                            <option value="closed">Closed</option>
+                                            <option value="open">Open</option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="FollowUp">Follow up</option>
+                                           
+                                        </select>
+                                    </div>
+                                     
+                                    <div class="relative ">
+                                        <input name="comment" type="text" id="Comments" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required max="700"/>
+                                        <label for="Comments" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Comments</label>
+                                    </div>
+        
+                                 
+            
+                                    <div class="relative ">
+                                        <label for="assignedTo" class="sr-only">Assigned To</label>
+
+                                        {% if type == 'Agent' %}
+                                        <select id="assignedTo" name="assigned_to" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Assigned To</option>
+                                                <option value="{{ agent }}">{{ agent }}</option>
+
+                                        </select>
+                                        {% else %}
+                                        <select id="assignedTo" name="assigned_to" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Assigned To</option>
+                                            {% for assigned_to_value in assigned_to_values %}
+                                                <option value="{{ assigned_to_value }}">{{ assigned_to_value }}</option>
+                                            {% endfor %}
+
+                                        </select>
+                                        {% endif %}
+                                    
+
+                                    </div>
+                              
+                                   
+    
+                        </div>
+                        
+     
+                        <button class="block rounded-t-lg mx-auto px-2.5 pb-2.5 pt-5 w-full text-left text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600">Send a Message </button>
+                                
+            
+                              
+                    
+                        <button type="submit" class=" absolute my-3 send-btn bg-blue-500 font-medium text-white rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">Add Lead</button>
+                            </div>
+                        
+    
+                        </form>
+                        
+                    
+                </div>
+            </section>
+        </div>
+       
+        <script>
+            // const select = document.getElementById("floorNumber");
+        
+            // for (let i = 1; i <= 70; i++) {
+            //     const option = document.createElement("option");
+            //     option.value = i;
+            //     option.text = i;
+            //     select.appendChild(option);
+            // }
+
+            const bedroom = document.getElementById("bedroom");
+        
+        for (let j = 1; j <= 10; j++) {
+            const option = document.createElement("option");
+            option.value = j;
+            option.text = j;
+            bedroom.appendChild(option);
+        }
+
+        // const bathroom = document.getElementById("bathroom");
+        
+        // for (let k = 1; k <= 10; k++) {
+        //     const option = document.createElement("option");
+        //     option.value = k;
+        //     option.text = k;
+        //     bathroom.appendChild(option);
+        // }
+        </script>
+       
+{% endblock body %}

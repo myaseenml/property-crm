@@ -1,0 +1,516 @@
+{% extends 'src/base.html' %}
+{% block title %}Telecalling{% endblock title %}
+{% block page_header_h3 %}Telecalling{% endblock page_header_h3 %}
+{% block page_header_span %}Telecalling{% endblock page_header_span %}
+
+{% block body %}
+<a href="add_availability1" style="float: right;" class="bg-blue-500 px-5 mt-3 py-3 font-semibold text-white  rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="white" class="inline-block mr-2" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>Add</a>
+
+      </header>
+<div class="relative overflow-x-scroll mt-20 shadow-md sm:rounded-lg">
+
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <!-- <th scope="col" class="p-4">
+                  <div class="flex items-center">
+                      <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                  </div>
+              </th> -->
+              <th scope="col" class="px-6 py-3">
+                  Sr No
+              </th>
+              <th scope="col" class="px-6 py-3">
+                 Location
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Community
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Property Type
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Floor No
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Unit Number
+              </th>
+              <th scope="col" class="px-6 py-3">
+                 Bedroom
+              </th>
+              <th scope="col" class="px-6 py-3">
+                 Bathroom 
+              </th>
+              <th scope="col" class="px-6 py-3">
+                View
+              </th>
+              <th scope="col" class="px-6 py-3">
+                SQFT
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Appartment Price
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Comments
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Date
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Status
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Owner Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Contact Number
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Email
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Availibility Status
+              </th> <th scope="col" class="px-6 py-3">
+                Added By
+              </th> <th scope="col" class="px-6 py-3">
+                Operations
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <!-- <td class="w-4 p-4">
+                  <div class="flex items-center">
+                      <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                  </div>
+              </td> -->
+              <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  1
+              </th>
+              <td class="px-6 py-4">
+                  Islamabad
+              </td>
+              <td class="px-6 py-4">
+                  ABC
+              </td>
+              <td class="px-6 py-4">
+                  Villa
+              </td>
+              <td class="px-6 py-4">
+                102
+              </td>
+              <td class="px-6 py-4">
+                  5
+              </td>
+              <td class="px-6 py-4">
+                  2
+              </td>
+              <td class="px-6 py-4">
+                  2
+              </td>
+              <td class="px-6 py-4">
+                  Garden View
+              </td>
+              <td class="px-6 py-4">
+                  5
+              </td>
+              <td class="px-6 py-4">
+                  $10000
+              </td>
+              <td class="px-6 py-4">
+                  Spacious
+              </td>
+              <td class="px-6 py-4">
+                  2023-10-06
+              </td>
+              <td class="px-6 py-4">
+                  Vaccant
+              </td>
+              <td class="px-6 py-4">
+                  Cole Librant
+              </td>
+              <td class="px-6 py-4">
+                  192-3245-5324
+              </td>
+              <td class="px-6 py-4">
+                  cole@gmail.com
+              </td>
+              <td class="px-6 py-4">
+                  For Sale
+              </td>
+              <td class="px-6 py-4">
+                  Admin
+              </td>
+              <td class="flex items-center px-6 py-4 space-x-3">
+                  <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                  <a href="#" class="font-medium text-green-600 dark:text-red-500 hover:underline">Modify</a>
+                  <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+              </td>
+          </tr>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <!-- <td class="w-4 p-4">
+                <div class="flex items-center">
+                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                </div>
+            </td> -->
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                1
+            </th>
+            <td class="px-6 py-4">
+                Islamabad
+            </td>
+            <td class="px-6 py-4">
+                ABC
+            </td>
+            <td class="px-6 py-4">
+                Villa
+            </td>
+            <td class="px-6 py-4">
+              102
+            </td>
+            <td class="px-6 py-4">
+                5
+            </td>
+            <td class="px-6 py-4">
+                2
+            </td>
+            <td class="px-6 py-4">
+                2
+            </td>
+            <td class="px-6 py-4">
+                Garden View
+            </td>
+            <td class="px-6 py-4">
+                5
+            </td>
+            <td class="px-6 py-4">
+                $10000
+            </td>
+            <td class="px-6 py-4">
+                Spacious
+            </td>
+            <td class="px-6 py-4">
+                2023-10-06
+            </td>
+            <td class="px-6 py-4">
+                Vaccant
+            </td>
+            <td class="px-6 py-4">
+                Cole Librant
+            </td>
+            <td class="px-6 py-4">
+                192-3245-5324
+            </td>
+            <td class="px-6 py-4">
+                cole@gmail.com
+            </td>
+            <td class="px-6 py-4">
+                For Sale
+            </td>
+            <td class="px-6 py-4">
+                Admin
+            </td>
+            <td class="flex items-center px-6 py-4 space-x-3">
+                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <a href="#" class="font-medium text-green-600 dark:text-red-500 hover:underline">Modify</a>
+                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+            </td>
+        </tr>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <!-- <td class="w-4 p-4">
+                <div class="flex items-center">
+                    <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                </div>
+            </td> -->
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                1
+            </th>
+            <td class="px-6 py-4">
+                Islamabad
+            </td>
+            <td class="px-6 py-4">
+                ABC
+            </td>
+            <td class="px-6 py-4">
+                Villa
+            </td>
+            <td class="px-6 py-4">
+              102
+            </td>
+            <td class="px-6 py-4">
+                5
+            </td>
+            <td class="px-6 py-4">
+                2
+            </td>
+            <td class="px-6 py-4">
+                2
+            </td>
+            <td class="px-6 py-4">
+                Garden View
+            </td>
+            <td class="px-6 py-4">
+                5
+            </td>
+            <td class="px-6 py-4">
+                $10000
+            </td>
+            <td class="px-6 py-4">
+                Spacious
+            </td>
+            <td class="px-6 py-4">
+                2023-10-06
+            </td>
+            <td class="px-6 py-4">
+                Vaccant
+            </td>
+            <td class="px-6 py-4">
+                Cole Librant
+            </td>
+            <td class="px-6 py-4">
+                192-3245-5324
+            </td>
+            <td class="px-6 py-4">
+                cole@gmail.com
+            </td>
+            <td class="px-6 py-4">
+                For Sale
+            </td>
+            <td class="px-6 py-4">
+                Admin
+            </td>
+            <td class="flex items-center px-6 py-4 space-x-3">
+                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <a href="#" class="font-medium text-green-600 dark:text-red-500 hover:underline">Modify</a>
+                <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+            </td>
+        </tr>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+          <!-- <td class="w-4 p-4">
+              <div class="flex items-center">
+                  <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                  <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+              </div>
+          </td> -->
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              1
+          </th>
+          <td class="px-6 py-4">
+              Islamabad
+          </td>
+          <td class="px-6 py-4">
+              ABC
+          </td>
+          <td class="px-6 py-4">
+              Villa
+          </td>
+          <td class="px-6 py-4">
+            102
+          </td>
+          <td class="px-6 py-4">
+              5
+          </td>
+          <td class="px-6 py-4">
+              2
+          </td>
+          <td class="px-6 py-4">
+              2
+          </td>
+          <td class="px-6 py-4">
+              Garden View
+          </td>
+          <td class="px-6 py-4">
+              5
+          </td>
+          <td class="px-6 py-4">
+              $10000
+          </td>
+          <td class="px-6 py-4">
+              Spacious
+          </td>
+          <td class="px-6 py-4">
+              2023-10-06
+          </td>
+          <td class="px-6 py-4">
+              Vaccant
+          </td>
+          <td class="px-6 py-4">
+              Cole Librant
+          </td>
+          <td class="px-6 py-4">
+              192-3245-5324
+          </td>
+          <td class="px-6 py-4">
+              cole@gmail.com
+          </td>
+          <td class="px-6 py-4">
+              For Sale
+          </td>
+          <td class="px-6 py-4">
+              Admin
+          </td>
+          <td class="flex items-center px-6 py-4 space-x-3">
+              <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+              <a href="#" class="font-medium text-green-600 dark:text-red-500 hover:underline">Modify</a>
+              <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+          </td>
+      </tr>
+      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <!-- <td class="w-4 p-4">
+            <div class="flex items-center">
+                <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+            </div>
+        </td> -->
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            1
+        </th>
+        <td class="px-6 py-4">
+            Islamabad
+        </td>
+        <td class="px-6 py-4">
+            ABC
+        </td>
+        <td class="px-6 py-4">
+            Villa
+        </td>
+        <td class="px-6 py-4">
+          102
+        </td>
+        <td class="px-6 py-4">
+            5
+        </td>
+        <td class="px-6 py-4">
+            2
+        </td>
+        <td class="px-6 py-4">
+            2
+        </td>
+        <td class="px-6 py-4">
+            Garden View
+        </td>
+        <td class="px-6 py-4">
+            5
+        </td>
+        <td class="px-6 py-4">
+            $10000
+        </td>
+        <td class="px-6 py-4">
+            Spacious
+        </td>
+        <td class="px-6 py-4">
+            2023-10-06
+        </td>
+        <td class="px-6 py-4">
+            Vaccant
+        </td>
+        <td class="px-6 py-4">
+            Cole Librant
+        </td>
+        <td class="px-6 py-4">
+            192-3245-5324
+        </td>
+        <td class="px-6 py-4">
+            cole@gmail.com
+        </td>
+        <td class="px-6 py-4">
+            For Sale
+        </td>
+        <td class="px-6 py-4">
+            Admin
+        </td>
+        <td class="flex items-center px-6 py-4 space-x-3">
+            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+            <a href="#" class="font-medium text-green-600 dark:text-red-500 hover:underline">Modify</a>
+            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+        </td>
+    </tr>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+      <!-- <td class="w-4 p-4">
+          <div class="flex items-center">
+              <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+          </div>
+      </td> -->
+      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          1
+      </th>
+      <td class="px-6 py-4">
+          Islamabad
+      </td>
+      <td class="px-6 py-4">
+          ABC
+      </td>
+      <td class="px-6 py-4">
+          Villa
+      </td>
+      <td class="px-6 py-4">
+        102
+      </td>
+      <td class="px-6 py-4">
+          5
+      </td>
+      <td class="px-6 py-4">
+          2
+      </td>
+      <td class="px-6 py-4">
+          2
+      </td>
+      <td class="px-6 py-4">
+          Garden View
+      </td>
+      <td class="px-6 py-4">
+          5
+      </td>
+      <td class="px-6 py-4">
+          $10000
+      </td>
+      <td class="px-6 py-4">
+          Spacious
+      </td>
+      <td class="px-6 py-4">
+          2023-10-06
+      </td>
+      <td class="px-6 py-4">
+          Vaccant
+      </td>
+      <td class="px-6 py-4">
+          Cole Librant
+      </td>
+      <td class="px-6 py-4">
+          192-3245-5324
+      </td>
+      <td class="px-6 py-4">
+          cole@gmail.com
+      </td>
+      <td class="px-6 py-4">
+          For Sale
+      </td>
+      <td class="px-6 py-4">
+          Admin
+      </td>
+      <td class="flex items-center px-6 py-4 space-x-3">
+          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+          <a href="#" class="font-medium text-green-600 dark:text-red-500 hover:underline">Modify</a>
+          <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+      </td>
+  </tr>
+      </tbody>
+  </table>
+</div>
+
+      
+      
+     
+   
+     </section>
+     
+  
+  </div>
+
+
+{% endblock body %}

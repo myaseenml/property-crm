@@ -1,0 +1,169 @@
+{% extends 'src/base.html' %}
+{% block title %}Add Lead{% endblock title %}
+{% block page_header_h3 %}Add Lead{% endblock page_header_h3 %}
+{% block page_header_span %}Add Lead{% endblock page_header_span %}
+{% load static %}
+{% block body %}
+
+                <div class="form mt-20 py-24 bg-white sm:mx-12 md:mx-32  mx-6 rounded-lg  lg:w-4/5 w-5/6">
+                    <form method="post" action="{% url 'submit_lead' %}" class="grid md:grid-cols-2  justify-items-center items-start ">
+                        {% csrf_token %}
+                        <div class="left-form-area relative hidden md:block w-3/4">
+                            <img src="{% static 'assets/lead-1.avif' %}" class="rounded-md" >
+                          
+                        </div>
+    
+                            <div class="right-form-area w-5/6 ">
+                                <h2 class="text-center font-bold text-4xl ">Add Lead Form</h2>
+                                <div class=" grid sm:grid-cols-2 gap-4 mt-12 ">
+                                    <div class="relative ">
+                                        
+                                        <input type="text" name="name" id="name" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="name" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Name</label>
+                                    </div>
+        
+                                    <div class="relative ">
+                                    
+                                        <input type="number" name="contact_no" id="contact" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required/>
+                                        <label for="contact" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Contact No.</label>
+                                    </div>
+            
+                                   
+                                   
+                                    <div class="relative ">
+                                        <input type="email" name="email" id="email" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="email" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Email</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        
+                                        <input type="text" name="location" id="location" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="location" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Location</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        <input type="number" name="budget" id="budget" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                                        <label for="budget" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Budget</label>
+                                    </div>
+
+                                    <div class="relative max-w-sm">
+                                        <label for="bedroom"  class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"></label>
+                                        <select id="bedroom" name="bedrooms" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Bedroom</option>
+                                        </select>
+                                    </div>
+        
+                                    <div class="relative">
+    <input type="date" name="select_moving_date" id="select_moving_date" class="block rounded-t-lg px-2.5 pb-2.5 bg-gray-100 h-12 border-t-transparent text-gray-900 border-b-2 border-gray-300 text-sm focus:border-b-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required />
+</div>
+<button type="button" id="currentDateButton" class="text-blue-500" onclick="setCurrentDate()">Select Current Date</button>
+
+        
+                                    <div class="relative ">
+                                        
+                                        <input type="url" name="property_link" id="propertyLink" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="propertyLink" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Property Link</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        
+                                        <input type="text" name="lead_source" id="leadSource" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                                        <label for="leadSource" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Lead Source</label>
+                                    </div>
+
+                                    <div class="relative ">
+                                        <label for="view" class="sr-only">Lead Status:</label>
+                                    
+                                        <select id="view" name="lead_status" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Lead Status</option>
+                                            <option value="fresh">Fresh</option>
+                                            <option value="transferred">Transferred</option>
+                                            <option value="closed">Closed</option>
+                                            <option value="open">Open</option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="FollowUp">Follow up</option>
+                                           
+                                        </select>
+                                    </div>
+                                     
+                                    <div class="relative ">
+                                        <input type="text" name="comment" id="Comments" class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required max="700"/>
+                                        <label for="Comments" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Comments</label>
+                                    </div>
+        
+                                 
+            
+                                    <div class="relative ">
+                                        <label for="assignedTo" class="sr-only">Assigned To</label>
+                                    
+                                        <select id="assignedTo" name="assigned_to" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                                            <option value="" disabled selected>Assigned To</option>
+                                            {% for assigned_to_value in assigned_to_values %}
+                                                <option value="{{ assigned_to_value }}">{{ assigned_to_value }}</option>
+                                            {% endfor %}
+                                            
+                                        </select>
+                                    </div>
+                              
+                                   
+    
+                        </div>
+                        
+     
+                        <button class="block rounded-t-lg mx-auto px-2.5 pb-2.5 pt-5 w-full text-left text-sm text-gray-900 bg-gray-50 dark:bg-gray-700 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600">Send a Message </button>
+                                
+            
+                              
+                    
+                        <button type="submit" class=" absolute my-3 send-btn bg-blue-500 font-medium text-white rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">Add Lead</button>
+                            </div>
+                        
+    
+                        </form>
+                        
+                    
+                </div>
+            </section>
+        </div>
+       
+        <script>
+            // const select = document.getElementById("floorNumber");
+        
+            // for (let i = 1; i <= 70; i++) {
+            //     const option = document.createElement("option");
+            //     option.value = i;
+            //     option.text = i;
+            //     select.appendChild(option);
+            // }
+
+            const bedroom = document.getElementById("bedroom");
+        
+        for (let j = 1; j <= 10; j++) {
+            const option = document.createElement("option");
+            option.value = j;
+            option.text = j;
+            bedroom.appendChild(option);
+        }
+
+        // const bathroom = document.getElementById("bathroom");
+        
+        // for (let k = 1; k <= 10; k++) {
+        //     const option = document.createElement("option");
+        //     option.value = k;
+        //     option.text = k;
+        //     bathroom.appendChild(option);
+        // }
+        </script>
+<script>
+    // JavaScript function to set the current date in the date input field
+    function setCurrentDate() {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is 0-based
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+        document.getElementById("select_moving_date").value = formattedDate;
+    }
+</script>
+       
+{% endblock body %}

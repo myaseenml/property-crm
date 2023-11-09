@@ -1,0 +1,83 @@
+{% extends 'src/base.html' %}
+{% block title %}Users{% endblock title %}
+{% block page_header_h3 %}Users{% endblock page_header_h3 %}
+{% block page_header_span %}Users{% endblock page_header_span %}
+
+{% block body %}
+<div class="relative overflow-x-scroll mt-20 shadow-md sm:rounded-lg">
+
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <!-- <th scope="col" class="p-4">
+                  <div class="flex items-center">
+                      <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                      <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                  </div>
+              </th> -->
+              <th scope="col" class="px-6 py-3">
+                 User Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                 Password
+              </th>
+              <th scope="col" class="px-6 py-3">
+                 Account Type
+              </th>
+              <th scope="col" class="px-6 py-3">
+                 Login IP
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Account Status
+              </th>
+              <th scope="col" class="px-6 py-3">
+                New Login Notification
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Operations
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+                {% for user in users %}
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <!-- Table row for each lead -->
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ user.username }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ user.password_or_otp }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ user.account_type }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ user.last_login_ip }}
+                    </td>
+                    <td class="px-6 py-4" style="{% if user.account_status == 'active' %}color: green;{% else %}color: red;{% endif %}">
+                        {{ user.account_status }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ user.new_login_ip_notification }}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{% url 'user_update' user.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="{% url 'user_delete' user.pk %}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+  </table>
+</div>
+
+      
+      
+     
+   
+     </section>
+     
+  
+  </div>
+
+
+{% endblock body %}

@@ -1,0 +1,44 @@
+<style>
+  /* Custom success message style */
+.success-message {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Custom danger message style */
+.danger-message {
+    background-color: #FF5733;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Custom warning message style */
+.warning-message {
+    background-color: #FFA500;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+</style>
+
+{% if messages %}
+  {% for message in messages %}
+
+    <div class="{{ message.tags }} m-2" id="msg" role="alert">
+      {{ message }}
+    </div>
+
+  {% endfor %}
+<script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 2000)
+  </script>
+{% endif %}
+

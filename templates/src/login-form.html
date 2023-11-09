@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'css/dist/output.css' %}" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+  <title>Dashbard</title>
+  <style>
+.contain{
+ /* background:  linear-gradient(90deg, #fbc926 1%, #fddc5c 25%, #eed688 63%, #fffbcc 100%); */
+ background-color: white;
+}
+  </style>
+  
+
+</head>
+<body>{% include 'src/messages.html' %}
+    <div class="contain  w-screen h-screen flex justify-center items-center">
+      <div class="bg-[#fce993] h-80 absolute -left-12 -top-44 w-80 rounded-full opacity-30">
+
+      </div>
+      <div class="bg-[#fce993] h-72 fixed  -left-52 -bottom-20 w-72 rounded-full opacity-30">
+
+      </div>
+      <div class="bg-[#fce993] h-[36rem] fixed z-30 -right-20 -bottom-24 w-[36rem] rounded-full opacity-30">
+
+      </div>
+
+      <div class="bg-[#01311e] w-2/3 h-3/4  z-40 rounded">
+    <div class=" flex justify-center py-20 items-center gap-12 px-24">
+      <div class="login-img w-3/4 flex flex-col justify-center items-center my-auto">
+        <img src="{% static 'assets/logo without background.png' %}" class=" ">
+         
+        <!-- <img src="../src/assets/5932135-removebg-preview.png"> -->
+      </div>
+      <div class="login-form w-3/4">
+        <div class="account-form text-white text bg-transparent sm:px-3  z-40 rounded-lg">
+
+          <div class="form-btn   py-4 ">
+              <!-- <span onclick="Login()" id="login" class="active pr-4 text-xl text-gray-700 cursor-pointer" >Login</span> -->
+              <!-- <span onclick="Register()" id="register" class="text-gray-700 text-xl cursor-pointer " >Register</span> -->
+              <!-- <p id="indicator" class=" h-6 w-[60px] duration-200 hidden xl:block" ></p> -->
+              <span class="  text-3xl font-bold  cursor-pointer" >Welcome Back</span><br>
+              <span class="  text-lg  cursor-pointer" >Login to continue</span>
+
+              
+          </div>
+          <!--Login Form Starts-->
+          <form method="post" action="{% url 'login' %}" id="Login-Form" class=" translate-x-0 transition-all duration-700 bg-transparent ">
+            {% csrf_token %}
+            <div class="my-3 relative border-white border rounded-md   py-4 w-full mx-1 mt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class=" mr-4  absolute left-7 z-10 top-7 fill-white"  height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+              <input type="text" name="username" placeholder="abc@gmail.com"   class="bg-transparent relative px-6 left-12  outline-none border-none focus:outline-none w-5/6 focus:border-none">
+            </div>
+            <div class="my-3 relative border-white border rounded-md   py-4 w-full mx-1 mt-2">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em"  class=" mr-4  absolute left-7 z-10 top-7 fill-white" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>              
+                <input type="password" name="password_or_otp" placeholder="******"  class="bg-transparent relative px-6 left-12  outline-none border-none focus:outline-none w-5/6 focus:border-none">
+            </div>
+            <div class="flex justify-between items-center">
+              <div class="flex items-center my-3 ml-1">
+                <input name="remember" id="checkbox-all-search" type="checkbox" class="w-4 h-4 mr-3 text-blue-600 bg-gray-100 border-gray-300  focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="checkbox-all-search" >Remember Me</label>
+
+            </div>
+            <a style="color: red;" href="{% url 'register' %}">Create New Account</a>
+            </div>
+              
+              <button class="contain text-center flex justify-center text-black w-44 mx-auto  rounded-md items-center px-5 py-4 mt-4 btn">Sign In</button>
+<!--              <a href="register-form.html" class="flex justify-center w-full items-center mt-3">New User? Sign Up</a>-->
+
+          </form>
+           <!--Login Form Ends-->
+           
+         
+  </div>
+      </div>
+    </div>
+       
+      </div>
+     
+    </div>
+</body>
+</html>

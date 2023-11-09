@@ -1,0 +1,183 @@
+{% extends 'src/base.html' %}
+{% block title %}Avalibility For Sale / Rent{% endblock title %}
+{% block page_header_h3 %}Avalibility For Sale / Rent{% endblock page_header_h3 %}
+{% block page_header_span %}Avalibility For Sale / Rent{% endblock page_header_span %}
+
+{% block body %}
+<a href="for_sale_availability" style="float: left; margin-right: 10px;" class="bg-blue-500 px-5 mt-3 py-3 font-semibold text-white  rounded-lg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>For Sale</a>
+<a href="for_rent_availability" style="float: left;" class="bg-blue-500 px-5 mt-3 py-3 font-semibold text-white  rounded-lg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>For Rent</a>
+
+<a href="add_availability1" style="float: right;" class="bg-blue-500 px-5 mt-3 py-3 font-semibold text-white  rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="white" class="inline-block mr-2" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>Add</a>
+
+      </header>
+<div class="relative overflow-x-scroll mt-20 shadow-md sm:rounded-lg">
+
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="content">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <!-- <th scope="col" class="p-4">
+                            <div class="flex items-center">
+                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            </div>
+                        </th> -->
+                        <th scope="col" class="px-6 py-3">
+                           Sr No:
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Location
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Community
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Tower/Building
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Property Type
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Floor No
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Unit No
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                           Bedrooms
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Bathrooms
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          View
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          SQFT
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Price
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Comments
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Owner Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Contact No
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Email
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Availability Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                          Added by
+                        </th>
+                        {% if type != 'Admin' %}
+                        <th scope="col" class="px-6 py-3">
+                          Operations
+                        </th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                {% for availability in availabilities %}
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <!-- Table row for each lead -->
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{ availability.sno }}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{ availability.location }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.community }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.property }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.property_type }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.floor_no }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.unit_no }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.bedrooms }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.bathrooms }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.view }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.sqft }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.price }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.comments }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.added_date }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.status }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.owner_name }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.contact_no }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.email }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.availability_status }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ availability.added_by }}
+                    </td>
+                    {% if type == 'Telecalling' or type == 'Agent' %}
+                    <td class="px-6 py-4">
+                        <a href="{% url 'availability_update' availability.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    </td>
+                    {% elif type == 'Manager' %}
+                    <td class="px-6 py-4">
+                        <a href="{% url 'availability_update' availability.pk %}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="{% url 'availability_delete' availability.pk %}" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                    </td>
+                    {% endif %}
+                    <!-- Add more fields as needed -->
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+</div>
+
+      
+      
+     
+   
+     </section>
+     
+  
+  </div>
+
+
+{% endblock body %}
